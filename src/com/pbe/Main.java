@@ -45,7 +45,6 @@ public class Main {
         // Calling default constructor, without passing any parameters
         Car myCar = new Car();
 
-
         // Calling a different constructor by passing all required parameters for the constructor arguments
         Car myCar2 = new Car("car",
                 "hatchback",
@@ -67,8 +66,11 @@ public class Main {
         myCar.setBrand("Ferrari");
 
         // Getting the brand of myCar again
-        System.out.println("The brand of myCar now is: " + myCar.getBrand());
+        System.out.println("The brand of myCar now is: " + myCar.getBrand() + "\n");
 
-
+        // Getting all details of myCar by calling the method carDetails() of class Car
+        // This method in turn calls printDetails() in the Vehicle superclass
+        myCar.carDetails();
+        System.out.println();
     }
 }
