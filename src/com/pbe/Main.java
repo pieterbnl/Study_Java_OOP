@@ -46,18 +46,25 @@ public class Main {
         Car myCar = new Car();
 
         // Calling a different constructor by passing all required parameters for the constructor arguments
-        Car myCar2 = new Car("car",
-                "hatchback",
-                "Opel",
-                "Corsa",
+        Car myCar2 = new Car(
+                "PB",
+                "007",
+                "Car",
+                "Hatchback",
+                "Open",
                 "1.2L",
+                "ECO",
                 true,
                 4,
                 4,
                 12000,
+                0,
+                0,
                 3,
+                5,
                 false,
-                true);
+                true
+        );
 
         // Getting the brand of myCar
         System.out.println("The brand of myCar currently is: " + myCar.getBrand());
@@ -72,5 +79,17 @@ public class Main {
         // This method in turn calls printDetails() in the Vehicle superclass
         myCar.carDetails();
         System.out.println();
+
+        // Creating a RangeRover object via RangeRover subclass of car
+        RangeRover rangeRover = new RangeRover();
+
+        // Using Car class methods on rangeRover object
+        rangeRover.steer(45);
+        rangeRover.accelerate(10);
+        rangeRover.accelerate(20);
+        rangeRover.accelerate(20);
+        rangeRover.accelerate(20);
+        rangeRover.accelerate(40);
+        rangeRover.accelerate(-42);
     }
 }

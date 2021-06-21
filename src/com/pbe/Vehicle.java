@@ -3,6 +3,8 @@ package com.pbe;
 public class Vehicle {
 
     // Variables specified by the Vehicle class
+    protected String owner;
+    protected String registrationNumber;
     protected String vehicleType; // "bike", "car", "boat"
     protected String vehicleSubType; // sedan, coupe, hatchback, station, suv, cabriolet
     protected String brand;
@@ -12,6 +14,8 @@ public class Vehicle {
     protected int wheels;
     protected int seats;
     protected int price;
+    private int currentVelocity;
+    private int currentDirection;
 
     // ************************************
     // Constructors, this keyword and instance variable hiding
@@ -31,6 +35,8 @@ public class Vehicle {
     // Note that the Vehicle's instance variables are all given a pre-set value
     // This way, even if an instance of Vehicle is instantiated without passing any arguments, all instance variables will be set with a default value
     public Vehicle() {
+        this.owner = "PB";
+        this.registrationNumber = "007";
         this.vehicleType = "car";
         this.vehicleSubType = "Hatchback";
         this.brand = "Ford";
@@ -40,6 +46,8 @@ public class Vehicle {
         this.wheels = 4;
         this.seats = 4;
         this.price = 15000;
+        this.currentVelocity = 0;
+        this.currentDirection = 0;
     }
 
     // Constructor with parameters: a parameterized constructor
@@ -49,8 +57,9 @@ public class Vehicle {
     // As a result the local variables 'hide' the instance variables. To differentiate between the both, the this keyword can be used.
     // The This keyword can be used inside any method to refer to the current object; it is always a reference to the object on which the method was invoked.
     // This way any namespace collisions which may occur between the local- and instance variables, are resolved.
-    //
-    public Vehicle(String vehicleType, String vehicleSubType, String brand, String model, String version, boolean hasEngine, int wheels, int seats, int price) {
+    public Vehicle(String owner, String registrationNumber, String vehicleType, String vehicleSubType, String brand, String model, String version, boolean hasEngine, int wheels, int seats, int price, int currentVelocity, int currentDirection) {
+        this.owner = owner;
+        this.registrationNumber = registrationNumber;
         this.vehicleType = vehicleType;
         this.vehicleSubType = vehicleSubType;
         this.brand = brand;
@@ -60,6 +69,8 @@ public class Vehicle {
         this.wheels = wheels;
         this.seats = seats;
         this.price = price;
+        this.currentVelocity = 0;
+        this.currentDirection = 0;
     }
 
     // *********
@@ -83,6 +94,8 @@ public class Vehicle {
 
     // Method to print the details of Vehicle
     public void printDetails() {
+        System.out.println("Owner: " + owner);
+        System.out.println("Registration no.: " + registrationNumber);
         System.out.println("Type of vehicle: " + vehicleType);
         System.out.println("Sub type of vehicle: " + vehicleSubType);
         System.out.println("Brand: " + brand);
@@ -92,5 +105,30 @@ public class Vehicle {
         System.out.println("No. of wheels: " + wheels);
         System.out.println("No. of seats: " + seats);
         System.out.println("Price: " + price);
+    }
+
+    // Method to steer the vehicle in a direction
+    public void steer(int direction) {
+        this.currentDirection += direction;
+        System.out.println("Vehicle.steer(): Steer at " + currentDirection + " degrees.");
+    }
+
+    // Method to move the vehicle in a direction
+    public void move(int velocity, int direction) {
+        currentVelocity = velocity;
+        currentDirection = direction;
+        System.out.println("Vehicle.move(): Moving at " + currentVelocity + "km/hr in direction " + currentDirection + "degrees.");
+    }
+
+    public int getCurrentVelocity() {
+        return currentVelocity;
+    }
+
+    public int getCurrentDirection() {
+        return currentDirection;
+    }
+
+    public void stop() {
+        this.currentVelocity = 0;
     }
 }
