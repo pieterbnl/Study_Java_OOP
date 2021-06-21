@@ -25,6 +25,20 @@ package com.pbe;
 
 public class Main {
 
+    // ************************************
+    // Use of 'static'
+    // ************************************
+    // When a member is declared static, it can be accessed before any other objects of its class are created and without any reference to any object.
+    // As main needs to be called before any objects exists, it's declared as static.
+    // Both methods and variables can be declared static.
+    // Instance variables declared static can be considered global variables.
+    // When objects of a class are declared, no copy of static variables are made.
+    // Methods declared as static have several restrictions:
+    // - they can only directly call other static methods of their class
+    // - they can only directly access static variables of their class
+    // - they cannot refer to 'this' or 'super' in any way
+    // Static methods and variable can be used independently of any object, outside of the class in which they are defined.
+    // To access them, only the name of their class followed by the dot operator needs to be specified: classname.method().
     public static void main(String[] args) {
 
         // ************************************
@@ -43,9 +57,11 @@ public class Main {
         // If no  constructor is specified, Java will automatically run a default constructor.
 
         // Calling default constructor, without passing any parameters
+        System.out.println("Initializing myCar");
         Car myCar = new Car();
 
         // Calling a different constructor by passing all required parameters for the constructor arguments
+        System.out.println("Initializing myCar2");
         Car myCar2 = new Car(
                 "PB",
                 "007",
@@ -77,10 +93,26 @@ public class Main {
 
         // Getting all details of myCar by calling the method carDetails() of class Car
         // This method in turn calls printDetails() in the Vehicle superclass
+        System.out.println("myCar specifics:");
         myCar.carDetails();
         System.out.println();
 
+        // Cloning myCar and printing it's details.
+        System.out.println("Initializing myCar3");
+        Car myCar3 = new Car(myCar);
+        System.out.println("myCar3 specifics:");
+        myCar3.carDetails();
+        System.out.println();
+
+        // Setting a new brand for myCar3 and printing it's details again
+        myCar3.setBrand("Opel");
+        System.out.println("myCar3 specifics, again:");
+        myCar3.carDetails();
+        System.out.println();
+
+
         // Creating a RangeRover object via RangeRover subclass of car
+        System.out.println("Initializing rangeRover");
         RangeRover rangeRover = new RangeRover();
 
         // Using Car class methods on rangeRover object

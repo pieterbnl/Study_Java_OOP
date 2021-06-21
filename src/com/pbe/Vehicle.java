@@ -48,6 +48,7 @@ public class Vehicle {
         this.price = 15000;
         this.currentVelocity = 0;
         this.currentDirection = 0;
+        System.out.println("Constructor Vehicle() is called");
     }
 
     // Constructor with parameters: a parameterized constructor
@@ -71,6 +72,7 @@ public class Vehicle {
         this.price = price;
         this.currentVelocity = 0;
         this.currentDirection = 0;
+        System.out.println("Parameterized constructor Vehicle() is called");
     }
 
     // *********

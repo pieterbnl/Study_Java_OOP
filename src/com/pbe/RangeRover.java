@@ -8,6 +8,7 @@ public class RangeRover extends Car {
     public RangeRover(String owner, String registrationNumber, String vehicleType, String vehicleSubType, String brand, String model, String version, boolean hasEngine, int wheels, int seats, int price, int currentVelocity, int currentDirection, int doors, int gears, boolean isAutomate, boolean hasAirbags, int roadServiceMonths) {
         super(owner, registrationNumber, vehicleType, vehicleSubType, brand, model, version, hasEngine, wheels, seats, price, currentVelocity, currentDirection, doors, gears, isAutomate, hasAirbags);
         this.roadServiceMonths = roadServiceMonths;
+        System.out.println("Parameterized constructor RangeRover() is called");
     }
 
     public RangeRover() {
@@ -27,5 +28,6 @@ public class RangeRover extends Car {
         this.isAutomate = true;
         this.hasAirbags = true;
         this.roadServiceMonths = 24;
+        System.out.println("Constructor RangeRover() is called");
     }
 }
