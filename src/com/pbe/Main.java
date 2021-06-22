@@ -123,5 +123,69 @@ public class Main {
         rangeRover.accelerate(20);
         rangeRover.accelerate(40);
         rangeRover.accelerate(-42);
+        System.out.println();
+
+
+        // *********************
+        // METHOD OVERRIDING & OVERLOADING
+        // *********************
+        // The following is not related to the vehicle/car example
+        // A method in a subclass is said to override the method in its superclass when a method in both the super- and subclass have the same name and type signature.
+        // When calling an overridden method from within its subclass, it will always refer to the version of that method defined by the subclass.
+        // Hiding the version of the method defined by the superclass.
+        // Method overriding occurs only when the names and the type signatures of two methods are identical.
+        // If they are not, they are simply overloaded (i.e. compiler will use method that matches the given arguments).
+
+        // Method overriding test
+        System.out.println("Method overriding test");
+        Class_B_method_overriding class_B_obj1 = new Class_B_method_overriding(1, 2, 3);
+
+        // calling display() in Class_B, which overrides the version in Class_A
+        // to access display( in Class_A, super should be used in Class_B display()
+        class_B_obj1.display();
+        System.out.println();
+
+        // Method overloading test
+        System.out.println("Method overloading test");
+        Class_B_method_overloading class_B_obj2 = new Class_B_method_overloading(1, 2, 3);
+
+        // The following calls display() with different type signatures
+        class_B_obj2.display("k = "); // this calls show in Class_B_method_overloading(), which takes a String as parameter
+        class_B_obj2.display(); // this calls show in Class_A_method_overloading(), which takes no parameters
+        System.out.println();
+
+        // *********************
+        // DYNAMIC METHOD DISPATCH
+        // *********************
+        // Method overriding forms the basis for one of Java's most powerful concepts: dynamic method dispatch.
+        // Dynamic method dispatch is the mechanism in which a call to an overridden method is resolved at run time instead of compile time.
+        // This is an important concept which is how Java implements run-time polymorphism.
+
+        // Java allows a superclass reference variable to refer to a subclass object, to resolve calls to overridden methods at run time.
+        // When a superclass reference is used to call an overridden method, Java determines which version of the method to execute..
+        // ..based on the type of the object being referred to at the time call.
+        // I.e.: it's the type of object being referred to that determines which version of an overridden method will be executed.
+
+        // When a superclass contains a method that is overridden by a subclass and different types of objects are referred to through a superclass reference variable..
+        // .. different versions of the method are executed.
+        // I.e. it's possible to define one consistent interface that is used by several different, yet related, types of objects.
+
+        // Note: it's only possible to override methods, not the variables(data members), so runtime polymorphism cannot be achieved by data members.
+
+        System.out.println("Dynamic method dispatch example");
+        // Creating objects
+        Vehicle a = new Vehicle();
+        Car b = new Car();
+        Truck c = new Truck();
+
+        Vehicle r; // obtain reference of Vehicle (=superclass)
+        r = a; // r refers to a Vehicle object
+        r.dynamicmethodispatch(); // call's Vehicle's dynamicmethodispatch() method
+
+        r = b; // r refers to a Car object =(subclass of Vehicle)
+        r.dynamicmethodispatch(); // call's Car's dynamicmethodispatch() method, overriding Vehicle's dynamicmethodispatch() method
+
+        r = c; // r refers to a Truck object =(subclass of Vehicle)
+        r.dynamicmethodispatch(); // call's Car's dynamicmethodispatch() method, overriding Vehicle's dynamicmethodispatch() method
     }
 }

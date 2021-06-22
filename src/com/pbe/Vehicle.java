@@ -122,6 +122,11 @@ public class Vehicle {
         System.out.println("Vehicle.move(): Moving at " + currentVelocity + "km/hr in direction " + currentDirection + "degrees.");
     }
 
+    // Dynamic method dispatch test method
+    void dynamicmethodispatch() {
+        System.out.println("Inside Vehicle's dynamicmethodispatch() method");
+    }
+
     public int getCurrentVelocity() {
         return currentVelocity;
     }

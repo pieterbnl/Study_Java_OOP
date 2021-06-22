@@ -143,6 +143,7 @@ public class Car extends Vehicle {
 
     // Method to accelerate car, based on a given rate, indicating appropriate gear changes
     public void accelerate(int rate) {
+        System.out.println("Inside Car accelerate() method");
         int newVelocity = getCurrentVelocity() + rate;
         if(newVelocity ==0) {
             stop();
@@ -173,5 +174,10 @@ public class Car extends Vehicle {
     public void changeVelocity(int speed, int direction) {
         System.out.println("Car.changeVelocity() : Velocity " + speed + "km/hr in direction " + direction + " degrees.");
         super.move(speed, direction);
+    }
+
+    // Dynamic method dispatch test method
+    void dynamicmethodispatch() {
+        System.out.println("Inside Car's dynamicmethodispatch() method");
     }
 }
