@@ -154,6 +154,18 @@ public class Main {
         class_B_obj2.display(); // this calls show in Class_A_method_overloading(), which takes no parameters
         System.out.println();
 
+        // Prevent method being overridden
+        // Methods declared as 'final' cannot be overwritten
+        // Final is to be specified as a modifier at the start of the method declaration
+        // For example "void display()" would become "final void display()"
+        // When trying to override this method now, it will result in a compile-time error
+
+        // Prevent a class from being inherited
+        // Also here, precede the class declaration with final
+        // Declaring a class as final implicitly declares all of its methods as final too
+        // Note that a class cannot be declared both abstract and final
+        // This is because an abstract class is incomplete by itself and relies upon its subclasses to provide implementations
+
         // *********************
         // DYNAMIC METHOD DISPATCH
         // *********************
